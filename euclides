@@ -1,0 +1,63 @@
+#include <stdio.h>
+#include <time.h>
+#include <stdlib.h>
+int main(void)
+{
+  
+	int a,b,resto=1,op;
+	int exit=0;
+	double cmz=clock(),fnl=clock();
+	do{
+		system("CLS");
+		system("color E0");
+		cmz=clock ();
+		int Cociente=0,contador=0;
+		printf("MENU DE OPCIONES\n");
+		printf("1.- ALGORITMO DE ECUCLIDES\n");
+		printf("2.- EXIT\n");
+		scanf("%d",&op);
+		resto=1;
+		switch (op) 
+		{
+		case 1:
+			printf("DAME EL NUMERO 1\n");
+			scanf("%d",&a);
+			printf("DAME EL NUMERO 2\n");
+			scanf("%d",&b);
+			
+			if (a==0||b==0) {
+				printf("NO VALIDO\n");
+			} else {
+				(a<b);                                                                     
+				Cociente=a;                                                              
+				a=b;                                                                               
+				b=Cociente;
+			}
+			while(resto>0){
+				printf("%d , %d, %d \n",a,b,resto);
+				Cociente=b;
+				resto=a%b;
+				a=b;
+				b=resto;
+				contador=contador+1;
+			}
+			fnl=(clock()-cmz)/1000;		
+			printf("El mcd es %d\n",a);
+			printf("\n");
+			printf("Tiempo final:%.2f segundos\n",fnl);
+			printf("\n");
+			printf("La cantidad de ciclos que realizo es %d\n",contador);
+			printf("\n");
+			printf("La cantidad de asignaciones %d es\n",contador*4);
+			break;
+		case 2:
+			(exit= 1);
+			printf("SALIR DEL SISTEMA...\n");
+			break;
+		default:
+			break;
+		}			
+		system("PAUSE");
+		
+	}while(exit!=1);
+}
